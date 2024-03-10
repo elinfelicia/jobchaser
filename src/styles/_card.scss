@@ -9,5 +9,11 @@
     border-radius: 2rem;
     padding: 1rem;
     background-color: var(--clr-bg);
-
+    &-date {
+        align-self: flex-end;
+    }
+    &-top {
+        display: flex;
+   
+    }
 }

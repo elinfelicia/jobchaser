@@ -36,6 +36,10 @@
   font-size: 36px;
 }
 
+.card-position {
+  color: var(--clr-dark);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -100,4 +104,13 @@ header {
   border-radius: 2rem;
   padding: 1rem;
   background-color: var(--clr-bg);
+}
+.card-date {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.card-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }/*# sourceMappingURL=index.css.map */
