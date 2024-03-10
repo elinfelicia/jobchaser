@@ -15,7 +15,7 @@ const jobs = [
     {
       id: 2,
       company: "Manage",
-      logo: "./images/manage.svg",
+      logo: "./assets/manage.svg",
       position: "Fullstack Developer",
       role: "Fullstack",
       level: "Midweight",
