@@ -2,6 +2,7 @@
   --ff-main: "K2D", sans-serif;
   --clr-dark: #4F518C;
   --clr-bg: #DABFFF14;
+  --clr-tags: #DABFFF;
 }
 
 .font-thin {
@@ -64,11 +65,19 @@ main {
 
 header {
   padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headers {
+  max-width: 400px;
 }
 
 .heading {
   text-align: center;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.2rem;
 }
 
 .searchbar {
@@ -76,7 +85,10 @@ header {
   border: 1px solid var(--clr-dark);
   padding: 10px 0;
   border-radius: 50px;
-  margin-top: 1.8rem;
+  margin-top: 1.2rem;
+  font-size: 20px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .searchbar-input {
   width: 80%;
@@ -84,6 +96,31 @@ header {
   text-align: center;
   border: none;
   margin-left: 10px;
+}
+
+.searchbar-input::-webkit-input-placeholder {
+  font-family: var(--ff-main);
+  font-size: 20px;
+}
+
+.searchbar-input::-moz-placeholder {
+  font-family: var(--ff-main);
+  font-size: 20px;
+}
+
+.searchbar-input:-ms-input-placeholder {
+  font-family: var(--ff-main);
+  font-size: 20px;
+}
+
+.searchbar-input::-ms-input-placeholder {
+  font-family: var(--ff-main);
+  font-size: 20px;
+}
+
+.searchbar-input::placeholder {
+  font-family: var(--ff-main);
+  font-size: 20px;
 }
 
 .card {
@@ -100,6 +137,7 @@ header {
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 90%;
+  max-width: 400px;
   border: none;
   border-radius: 2rem;
   padding: 1rem;
@@ -113,4 +151,84 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+.card-mid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+}
+.card-mid p {
+  background-color: var(--clr-tags);
+  margin: 0.5rem;
+  padding: 0.2rem 1rem;
+  text-align: center;
+  border-radius: 50px;
+}
+.card-mid div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.card-bottom {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 1rem;
+}
+
+:root {
+  --clr-bg-blue: #7FDEFF;
+  --clr-bg-hover: #B19CCF;
+}
+
+.apply-btn {
+  color: var(--clr-dark);
+  font-size: 20px;
+  background-color: var(--clr-bg-blue);
+  padding: 1rem 5.5rem;
+  border: none;
+  border-radius: 50px;
+}
+
+.apply-btn:hover {
+  cursor: pointer;
+  background-color: var(--clr-bg-hover);
+  color: white;
+}
+
+@media (min-width: 700px) {
+  main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 2rem;
+  }
 }/*# sourceMappingURL=index.css.map */

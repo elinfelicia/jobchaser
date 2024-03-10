@@ -1,0 +1,19 @@
+:root {
+    --clr-bg-blue: #7FDEFF;
+    --clr-bg-hover: #B19CCF;
+}
+
+.apply-btn {
+    color: var(--clr-dark);
+    font-size: 20px;
+    background-color: var(--clr-bg-blue);
+    padding: 1rem 5.5rem;
+    border: none;
+    border-radius: 50px;
+}
+
+.apply-btn:hover {
+    cursor: pointer;
+    background-color: var(--clr-bg-hover);
+    color: white;
+}
