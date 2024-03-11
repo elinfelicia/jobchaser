@@ -1,5 +1,3 @@
-
-
 function JobCard({id, company, logo, position, role, level, postedAt, contract, location, languages, tools}) {
     return (
         <article className="card" id={id}>
