@@ -1,5 +1,4 @@
 import jobs from './data/data'
-
 import Header from './components/header'
 import JobCard from './components/jobcard'
 import './styles/index.css'
@@ -21,16 +20,8 @@ function App() {
               level={job.level}
               role={job.role}
               location={job.location}
-              languages={job.languages.map((language) => {
-                return (
-                  language
-                )
-              })}
-              tools={job.tools.map((tool) => {
-                return (
-                  tool
-                )
-              })}
+              languages={job.languages ? job.languages.map((language) => language) : []}
+              tools={job.tools ? job.tools.map((tool) => tool) : []}
             />
           )
         })}
@@ -38,7 +29,5 @@ function App() {
     </div>
   )
 }
-
-
 
 export default App
