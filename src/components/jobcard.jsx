@@ -3,7 +3,7 @@ function JobCard({id, company, logo, position, role, level, postedAt, contract, 
         <article className="card" id={id}>
             <p className="card-date font-thin">{postedAt}</p>
             <div className="card-top">
-                <img src={`src/assets/${logo}`} alt="company logo" className="logo-img" />
+                <img src={`./src/assets/${logo}`} alt="company logo" className="logo-img" />
                 <div className="card-top-info">
                     <h2 className="card-position font-medium">{position}</h2>
                     <h3 className="card-company font-thin">{company}</h3>
