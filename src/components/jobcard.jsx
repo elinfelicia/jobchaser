@@ -35,5 +35,4 @@ function JobCard({id, company, logo, position, role, level, postedAt, contract, 
         </article>
     );
 }
-
 export default JobCard;
