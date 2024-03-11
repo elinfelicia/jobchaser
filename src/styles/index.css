@@ -152,6 +152,9 @@ header {
   display: -ms-flexbox;
   display: flex;
 }
+.card-top-info {
+  padding-left: 1rem;
+}
 .card-mid {
   display: -webkit-box;
   display: -ms-flexbox;

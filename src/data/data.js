@@ -41,7 +41,7 @@ const jobs = [
     {
       id: 4,
       company: "MyHome",
-      logo: "./assets/myhome.svg",
+      logo: "myhome.svg",
       position: "Junior Frontend Developer",
       role: "Frontend",
       level: "Junior",
@@ -54,7 +54,7 @@ const jobs = [
     {
       id: 5,
       company: "Loop Studios",
-      logo: "./assets/loop-studios.svg",
+      logo: "loop-studios.svg",
       position: "Software Engineer",
       role: "Fullstack",
       level: "Midweight",
@@ -67,7 +67,7 @@ const jobs = [
     {
       id: 6,
       company: "FaceIt",
-      logo: "./assets/faceit.svg",
+      logo: "faceit.svg",
       position: "Junior Backend Developer",
       role: "Backend",
       level: "Junior",
@@ -80,7 +80,7 @@ const jobs = [
     {
       id: 7,
       company: "Shortly",
-      logo: "./assets/shortly.svg",
+      logo: "shortly.svg",
       position: "Junior Developer",
       role: "Frontend",
       level: "Junior",
@@ -93,7 +93,7 @@ const jobs = [
     {
       id: 8,
       company: "Insure",
-      logo: "./assets/insure.svg",
+      logo: "insure.svg",
       position: "Junior Frontend Developer",
       role: "Frontend",
       level: "Junior",
@@ -106,7 +106,7 @@ const jobs = [
     {
       id: 9,
       company: "Eyecam Co.",
-      logo: "./assets/eyecam-co.svg",
+      logo: "eyecam-co.svg",
       position: "Full Stack Engineer",
       role: "Fullstack",
       level: "Midweight",
@@ -119,7 +119,7 @@ const jobs = [
     {
       id: 10,
       company: "The Air Filter Company",
-      logo: "./assets/the-air-filter-company.svg",
+      logo: "the-air-filter-company.svg",
       position: "Front-end Dev",
       role: "Frontend",
       level: "Junior",
