@@ -15,6 +15,7 @@
     }
     &-top {
         display: flex;
+        align-items: flex-start;
         &-info{
             padding-left: 1rem;
         }
