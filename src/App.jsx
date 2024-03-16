@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Header from './components/header';
 import JobCard from './components/jobcard';
 import './styles/index.css';
@@ -10,13 +11,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/data/data.json');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const data = await response.json();
-        setJobs(data.jobs);
-        setFilteredJobs(data.jobs); 
+        const response = await axios.get('/data/data.json'); 
+        setJobs(response.data.jobs);
+        setFilteredJobs(response.data.jobs); 
       } catch (error) {
         console.error('Error fetching data:', error);
       }
