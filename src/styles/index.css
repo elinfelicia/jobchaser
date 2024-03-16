@@ -70,6 +70,11 @@ main {
   gap: 2rem;
 }
 
+.error-msg {
+  font-size: 2rem;
+  color: rgb(109, 104, 104);
+}
+
 header {
   padding: 2rem;
   width: 90%;

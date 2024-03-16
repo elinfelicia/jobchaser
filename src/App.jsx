@@ -7,11 +7,12 @@ import './styles/index.css';
 function App() {
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/data/data.json'); 
+        const response = await axios.get('/data/data.json');
         setJobs(response.data.jobs);
         setFilteredJobs(response.data.jobs); 
       } catch (error) {
@@ -23,6 +24,11 @@ function App() {
   }, []);
 
   const handleSearchChange = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    filterJobs(searchTerm);
+  };
+
+  const filterJobs = (searchTerm) => {
     if (!searchTerm) {
       setFilteredJobs(jobs);
     } else {
@@ -33,28 +39,30 @@ function App() {
       setFilteredJobs(filtered);
     }
   };
-  
-
 
   return (
     <div>
       <Header onSearch={handleSearchChange} />
       <main>
-        {filteredJobs.map((job) => (
-          <JobCard 
-            key={job.id}
-            postedAt={job.postedAt}
-            logo={job.logo}
-            position={job.position}
-            company={job.company}
-            contract={job.contract}
-            level={job.level}
-            role={job.role}
-            location={job.location}
-            languages={job.languages ? job.languages.map((language) => language) : []}
-            tools={job.tools ? job.tools.map((tool) => tool) : []}
-          />
-        ))}
+        {filteredJobs.length === 0 ? (
+          <p className='font-regular error-msg'>Unfortunately no jobs matched your search...</p>
+        ) : (
+          filteredJobs.map((job) => (
+            <JobCard 
+              key={job.id}
+              postedAt={job.postedAt}
+              logo={job.logo}
+              position={job.position}
+              company={job.company}
+              contract={job.contract}
+              level={job.level}
+              role={job.role}
+              location={job.location}
+              languages={job.languages ? job.languages.map((language) => language) : []}
+              tools={job.tools ? job.tools.map((tool) => tool) : []}
+            />
+          ))
+        )}
       </main>
     </div>
   );
