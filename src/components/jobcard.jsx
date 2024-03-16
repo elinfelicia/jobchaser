@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
 
 function JobCard({id, company, logo, position, role, level, postedAt, contract, location, languages, tools}) {
+    
     return (
         <article className="card" id={id}>
             <p className="card-date font-thin">{postedAt}</p>
@@ -38,17 +39,5 @@ function JobCard({id, company, logo, position, role, level, postedAt, contract, 
     );
 }
 
-JobCard.propTypes = {
-    id: PropTypes.number.isRequired,
-    company: PropTypes.string.isRequired,
-    logo: PropTypes.string.isRequired,
-    position: PropTypes.string.isRequired,
-    role: PropTypes.string.isRequired,
-    level: PropTypes.string.isRequired,
-    postedAt: PropTypes.string.isRequired,
-    contract: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    languages: PropTypes.arrayOf(PropTypes.string),
-    tools: PropTypes.arrayOf(PropTypes.string)
-};
+
 export default JobCard;
