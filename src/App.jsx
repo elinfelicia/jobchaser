@@ -26,12 +26,14 @@ function App() {
     if (!searchTerm) {
       setFilteredJobs(jobs);
     } else {
-      const filtered = jobs.filter(job =>
-        job.position.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      const filtered = jobs.filter(job => {
+        const searchString = `${job.position} ${job.company} ${job.contract} ${job.location} ${job.level} ${job.languages.join(' ')} ${job.tools.join(' ')}`;
+        return searchString.toLowerCase().includes(searchTerm.toLowerCase());
+      });
       setFilteredJobs(filtered);
     }
   };
+  
 
 
   return (
