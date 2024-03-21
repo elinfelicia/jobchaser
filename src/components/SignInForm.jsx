@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import {  Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase-config"
 
 
 function SignInForm() {
@@ -13,9 +15,18 @@ function SignInForm() {
 
     const formSubmit = (data) => {
         console.log("Form Submitted: ", data);
-        navigate("/jobs");
-
+        const {email, password} = data;
         
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            console.log("user signed in:", user);
+            navigate("/jobs");
+        })
+        .catch((error) => {
+            console.error("Error logging in user", error);
+
+        })
     };
 
     
