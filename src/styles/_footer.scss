@@ -1,6 +1,12 @@
 footer {
 
-    position: static;
-    padding: 1rem;
+    position: fixed;
+    padding: .5rem;
     bottom: 0;
+    background-color: rgba(245, 245, 245, 0.415);
+    width: 100%;
+    text-align: right;
+    p {
+        padding-right: 2rem;
+    }
     }

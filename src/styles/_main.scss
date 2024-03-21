@@ -1,14 +1,17 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: var(--ff-main);
 }
 body {
     width: 100%;
     box-sizing: border-box;
-    background-color: #F2F3F4;
+    background-color: whitesmoke;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    
 }
 main {
     display: flex;
@@ -16,6 +19,8 @@ main {
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
+    padding-bottom: 3rem;
+
 }
 
 .error-msg {

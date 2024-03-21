@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer>
-            <h3>Footer!</h3>
+            <p className="font-thin">©elinfelicia</p>
         </footer>
     )
 }
