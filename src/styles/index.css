@@ -91,6 +91,14 @@ header {
   margin-right: auto;
 }
 
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 .headers {
   max-width: 400px;
 }
@@ -245,7 +253,9 @@ header {
 }
 
 footer {
-  margin-top: auto;
+  position: static;
+  padding: 1rem;
+  bottom: 0;
 }
 
 @media (min-width: 700px) {

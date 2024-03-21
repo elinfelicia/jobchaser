@@ -13,8 +13,12 @@ function SignInForm() {
 
     const formSubmit = (data) => {
         console.log("Form Submitted: ", data);
-        navigate("/jobs")
+        navigate("/jobs");
+
+        
     };
+
+    
 
     return (
     <>

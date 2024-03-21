@@ -34,8 +34,6 @@ function SignUpForm() {
       alert("User registered successfully!");
       navigate("/signin")
 
-      // ADD redirection to sign in
-
     }
   };
 
