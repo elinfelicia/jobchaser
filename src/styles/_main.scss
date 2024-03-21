@@ -5,7 +5,10 @@
 body {
     width: 100%;
     box-sizing: border-box;
-    background-color: #F2F3F4 ;
+    background-color: #F2F3F4;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 main {
     display: flex;

@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 function JobCard({id, company, logo, position, role, level, postedAt, contract, location, languages, tools}) {
     
     return (

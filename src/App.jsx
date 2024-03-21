@@ -1,70 +1,44 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { useContext } from 'react';
 import Header from './components/header';
-import JobCard from './components/jobcard';
+import Footer from './components/Footer';
+import SignInPage from './components/pages/SignInPage';
+import SignUpPage from './components/pages/SignUpPage';
+import LandingPage from './components/pages/LandingPage';
+import Jobs from './components/pages/Jobs';
+import {AuthContext} from './components/context/AuthContext';
+
 import './styles/index.css';
 
+function ProtectedRoute() {
+
+  const authContext = useContext(AuthContext)
+  const isAuthenticated = authContext && authContext.user !== null
+
+  console.log("isAuthenticated", isAuthenticated);
+
+  return isAuthenticated ? <Outlet/> : <Navigate to="/signin" replace/>
+}
+
 function App() {
-  const [jobs, setJobs] = useState([]);
-  const [filteredJobs, setFilteredJobs] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('/data/data.json');
-        setJobs(response.data.jobs);
-        setFilteredJobs(response.data.jobs); 
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const handleSearchChange = (searchTerm) => {
-    setSearchTerm(searchTerm);
-    filterJobs(searchTerm);
-  };
-
-  const filterJobs = (searchTerm) => {
-    if (!searchTerm) {
-      setFilteredJobs(jobs);
-    } else {
-      const filtered = jobs.filter(job => {
-        const searchString = `${job.position} ${job.company} ${job.contract} ${job.location} ${job.level} ${job.languages.join(' ')} ${job.tools.join(' ')}`;
-        return searchString.toLowerCase().includes(searchTerm.toLowerCase());
-      });
-      setFilteredJobs(filtered);
-    }
-  };
 
   return (
-    <div>
-      <Header onSearch={handleSearchChange} />
+    <BrowserRouter>
+      <Header />
       <main>
-        {filteredJobs.length === 0 ? (
-          <p className='font-regular error-msg'>Unfortunately no jobs matched your search...</p>
-        ) : (
-          filteredJobs.map((job) => (
-            <JobCard 
-              key={job.id}
-              postedAt={job.postedAt}
-              logo={job.logo}
-              position={job.position}
-              company={job.company}
-              contract={job.contract}
-              level={job.level}
-              role={job.role}
-              location={job.location}
-              languages={job.languages ? job.languages.map((language) => language) : []}
-              tools={job.tools ? job.tools.map((tool) => tool) : []}
-            />
-          ))
-        )}
+        <Routes>
+          <Route path="/" element={<LandingPage/>} />
+          <Route path="/signup" element={<SignUpPage/>} />
+          <Route path="/signin" element={<SignInPage/>} />
+          <Route path="/jobs" element={<ProtectedRoute/>}>
+            <Route path="/jobs" element={<Jobs/>} />
+          </Route>
+        </Routes>
       </main>
-    </div>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

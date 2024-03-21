@@ -17,5 +17,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    // Add the rule here to ignore react/prop-types globally
+    'react/prop-types': 'off',
   },
-}
+};
