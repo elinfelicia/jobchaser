@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth"
+// import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -12,11 +13,13 @@ const firebaseConfig = {
   projectId: "jobchaser-acfc8",
   storageBucket: "jobchaser-acfc8.appspot.com",
   messagingSenderId: "310110727640",
-  appId: "1:310110727640:web:d39cb0bc481aba613e16ad",
-  measurementId: "G-04X1CHMN5L"
+  appId: "1:310110727640:web:2ebfa52a1e27943b3e16ad",
+  measurementId: "G-9C9CCMDDDN"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 
+const auth = getAuth(app)
+
+export {auth};

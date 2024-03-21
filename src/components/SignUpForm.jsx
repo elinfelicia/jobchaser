@@ -1,9 +1,10 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase-config"
 
 function SignUpForm() {
-  const [error, setError] = useState('');
+
   const navigate = useNavigate();
 
   const {
@@ -13,32 +14,19 @@ function SignUpForm() {
     formState: { errors }
   } = useForm();
 
-  const checkUser = (username) => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    return users.find((user) => user.username === username);
-  };
-
-  const registerUser = (userData) => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    users.push(userData);
-    localStorage.setItem('users', JSON.stringify(users));
-  };
-
-  const onSubmit = (data) => {
-    const user = checkUser(data.email);
-    if (user) {
-      setError("User already exists!");
-    } else {
-      const userData = { username: data.email, password: data.password };
-      registerUser(userData);
-      alert("User registered successfully!");
-      navigate("/signin")
-
-    }
-  };
+  const formSubmit = (data) => {
+    console.log("Form submitted", data);
+    createUserWithEmailAndPassword(auth, data.email, data.password)
+    .then(() => {
+        navigate("/signin")
+    })
+    .catch((error) => {
+        console.error("Error creating user", error);
+    })
+  }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(formSubmit)}>
       <div>
         <label htmlFor="email">Email:</label>
         <input
@@ -87,8 +75,6 @@ function SignUpForm() {
         )}
       </div>
 
-      {error && <span>{error}</span>}
-      
       <button type="submit">Register</button>
       <Link to="/signin">Already have an account? Sign In</Link>
     </form>
