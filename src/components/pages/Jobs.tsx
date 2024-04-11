@@ -1,14 +1,28 @@
-import JobCard from '../jobcard';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import JobCard from '../jobcard';
+
+interface Job {
+    id: string;
+    postedAt: string;
+    logo: string;
+    position: string;
+    company: string;
+    contract: string;
+    level: string;
+    role: string;
+    location: string;
+    languages: string[];
+    tools: string[];
+}
 
 function Jobs() {
-    const [jobs, setJobs] = useState([]);
-    const [filteredJobs, setFilteredJobs] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
-  
+    const [jobs, setJobs] = useState<Job[]>([]);
+    const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
+    const [searchTerm, setSearchTerm] = useState<string>('');
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -19,16 +33,16 @@ function Jobs() {
                 console.error('Error fetching data:', error);
             }
         };
-  
+
         fetchData();
     }, []);
-  
-    const handleChange = (e) => {
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(e.target.value);
         filterJobs(e.target.value);
     };
 
-    const filterJobs = (searchTerm) => {
+    const filterJobs = (searchTerm: string) => {
         if (!searchTerm) {
             setFilteredJobs(jobs);
         } else {
@@ -58,6 +72,7 @@ function Jobs() {
                 filteredJobs.map((job) => (
                     <JobCard 
                         key={job.id}
+                        id={job.id}
                         postedAt={job.postedAt}
                         logo={job.logo}
                         position={job.position}

@@ -1,5 +1,20 @@
-function JobCard({id, company, logo, position, role, level, postedAt, contract, location, languages, tools}) {
-    
+import React from 'react';
+
+interface JobCardProps {
+    id: string;
+    company: string;
+    logo: string;
+    position: string;
+    role: string;
+    level: string;
+    postedAt: string;
+    contract: string;
+    location: string;
+    languages: string[];
+    tools: string[];
+}
+
+const JobCard: React.FC<JobCardProps> = ({ id, company, logo, position, role, level, postedAt, contract, location, languages, tools }) => {
     return (
         <article className="card" id={id}>
             <p className="card-date font-thin">{postedAt}</p>
@@ -21,12 +36,12 @@ function JobCard({id, company, logo, position, role, level, postedAt, contract, 
                     <div className="languages">
                         {languages.map((language, index) => (
                             <p key={index} className="font-regular">{language}</p>
-                            ))}
+                        ))}
                     </div>
                     <div className="tools">
                         {tools.map((tool, index) => (
                             <p key={index} className="font-regular">{tool}</p>
-                            ))}
+                        ))}
                     </div>
                 </div>
             </div>
@@ -36,6 +51,5 @@ function JobCard({id, company, logo, position, role, level, postedAt, contract, 
         </article>
     );
 }
-
 
 export default JobCard;
