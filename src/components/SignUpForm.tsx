@@ -2,12 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { useForm } from "react-hook-form";
-
-type SignUpFormData = {
-    email: string;
-    password: string;
-    confirmPassword: string;
-};
+import SignUpFormData from "./types/SignUpFormData";
 
 function SignUpForm() {
     const navigate = useNavigate();

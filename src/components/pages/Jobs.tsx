@@ -3,20 +3,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import JobCard from '../jobcard';
+import Job from '../types/Job';
 
-type Job = {
-    id: string;
-    postedAt: string;
-    logo: string;
-    position: string;
-    company: string;
-    contract: string;
-    level: string;
-    role: string;
-    location: string;
-    languages: string[];
-    tools: string[];
-};
 
 function Jobs() {
     const [jobs, setJobs] = useState<Job[]>([]);
