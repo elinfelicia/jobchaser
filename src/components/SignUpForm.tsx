@@ -1,34 +1,28 @@
-import React from "react";
-import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase-config";
+import { useForm } from "react-hook-form";
 
-interface SignUpFormData {
+type SignUpFormData = {
     email: string;
     password: string;
     confirmPassword: string;
-}
+};
 
 function SignUpForm() {
     const navigate = useNavigate();
 
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors }
-    } = useForm<SignUpFormData>();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm<SignUpFormData>();
 
     const formSubmit = (data: SignUpFormData) => {
         console.log("Form submitted", data);
         createUserWithEmailAndPassword(auth, data.email, data.password)
-            .then(() => {
-                navigate("/signin");
-            })
-            .catch((error) => {
-                console.error("Error creating user", error);
-            });
+        .then(() => {
+            navigate("/signin");
+        })
+        .catch((error) => {
+            console.error("Error creating user", error);
+        });
     };
 
     return (
@@ -42,8 +36,8 @@ function SignUpForm() {
                         required: "Email is required",
                         pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                            message: "Invalid email address",
-                        },
+                            message: "Invalid email address"
+                        }
                     })}
                 />
                 {errors.email && <span>{errors.email.message}</span>}
@@ -58,8 +52,8 @@ function SignUpForm() {
                         required: "Password is required",
                         minLength: {
                             value: 8,
-                            message: "Password must be at least 8 characters",
-                        },
+                            message: "Password must be at least 8 characters"
+                        }
                     })}
                 />
                 {errors.password && <span>{errors.password.message}</span>}
@@ -73,7 +67,7 @@ function SignUpForm() {
                     {...register("confirmPassword", {
                         required: "Please confirm your password",
                         validate: (value) =>
-                            value === watch("password") || "Passwords do not match",
+                            value === watch("password") || "Passwords do not match"
                     })}
                 />
                 {errors.confirmPassword && (

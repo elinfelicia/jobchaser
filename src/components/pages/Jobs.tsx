@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import JobCard from '../jobcard';
 
-interface Job {
+type Job = {
     id: string;
     postedAt: string;
     logo: string;
@@ -16,7 +16,7 @@ interface Job {
     location: string;
     languages: string[];
     tools: string[];
-}
+};
 
 function Jobs() {
     const [jobs, setJobs] = useState<Job[]>([]);

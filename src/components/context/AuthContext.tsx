@@ -1,29 +1,31 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, ReactNode } from "react";
 
-interface User {
+type User = {
     name: string;
     email: string;
-}
+};
 
-export const AuthContext = createContext<User | null>(null);
+type AuthContextType = User | null;
 
-function AuthProvider({ children }: { children: React.ReactNode }) {
+export const AuthContext = createContext<AuthContextType>(null);
+
+type AuthProviderProps = {
+    children: ReactNode;
+};
+
+function AuthProvider({ children }: AuthProviderProps) {
     const [user, setUser] = useState<User | null>(null);
 
     const signIn = (mockUser: User) => {
         setUser(mockUser);
-    }
+    };
 
     useEffect(() => {
         const mockUser: User = { name: "John Doe", email: "john@example.com" };
         signIn(mockUser);
     }, []);
 
-    return (
-        <AuthContext.Provider value={user}>
-            {children}
-        </AuthContext.Provider>
-    );
+    return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 }
 
 export default AuthProvider;
