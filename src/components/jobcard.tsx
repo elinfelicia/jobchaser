@@ -1,5 +1,5 @@
 import React from 'react';
-import JobCardProps from './types/JobCardProps';
+import { JobCardProps } from './types/JobCardProps';
 
 const JobCard: React.FC<JobCardProps> = ({ id, company, logo, position, role, level, postedAt, contract, location, languages, tools }) => {
     return (

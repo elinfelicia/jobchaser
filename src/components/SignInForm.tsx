@@ -2,11 +2,11 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase-config";
-import SignInFormData from "./types/SignInFormData";
+import { SignInFormData }from "./types/SignInFormData";
 
 function SignInForm() {
     const navigate = useNavigate();
-    
+
     const {
         register,
         handleSubmit,

@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, ReactNode } from "react";
-import User from "../types/User";
+import { User } from "../types/User";
 
 type AuthContextType = User | null;
 

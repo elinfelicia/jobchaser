@@ -65,7 +65,8 @@ body {
           justify-content: space-between;
 }
 
-main {
+.jobs, main {
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -110,6 +111,26 @@ a {
 
 .heading {
   text-align: center;
+}
+
+.filering {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .searchbar {
@@ -263,6 +284,10 @@ a {
   color: var(--clr-bg-hover);
 }
 
+.filter-btn {
+  margin: 1rem;
+}
+
 footer {
   position: fixed;
   padding: 0.5rem;
@@ -276,7 +301,7 @@ footer p {
 }
 
 @media (min-width: 700px) {
-  main {
+  .jobs, .main {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

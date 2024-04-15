@@ -7,7 +7,8 @@ import SignUpPage from './components/pages/SignUpPage';
 import LandingPage from './components/pages/LandingPage';
 import Jobs from './components/pages/Jobs';
 import { AuthContext } from './components/context/AuthContext';
-
+import { Provider } from 'react-redux'; // Import Provider from react-redux
+import { store } from './components/store'; // Import your Redux store
 import './styles/index.css';
 
 function ProtectedRoute() {
@@ -21,26 +22,23 @@ function ProtectedRoute() {
 
 function App() {
   return (
-      <BrowserRouter>
-          <Header />
-          <main>
-              <Routes>
-                  <Route path="/" element={<LandingPage />} />
-                  <Route path="/signup" element={<SignUpPage />} />
-                  <Route path="/signin" element={<SignInPage />} />
-                  <Route path="/jobs" element={<ProtectedRoute />}>
-                      {/* Nested route with a relative path */}
-                      <Route path="/jobs" element={<Jobs />} />
-                  </Route>
-              </Routes>
-          </main>
-          <Footer />
-      </BrowserRouter>
+      <Provider store={store}> 
+          <BrowserRouter>
+              <Header />
+              <main>
+                  <Routes>
+                      <Route path="/" element={<LandingPage />} />
+                      <Route path="/signup" element={<SignUpPage />} />
+                      <Route path="/signin" element={<SignInPage />} />
+                      <Route path="/jobs" element={<ProtectedRoute />}>
+                          <Route path="/jobs" element={<Jobs />} />
+                      </Route>
+                  </Routes>
+              </main>
+              <Footer />
+          </BrowserRouter>
+      </Provider> 
   );
 }
-
-
-
-
 
 export default App;
