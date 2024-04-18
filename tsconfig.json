@@ -12,7 +12,9 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "declaration": true, // Enables generation of .d.ts files
+    "outDir": "./dist" // Defines output directory for compiled files
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
