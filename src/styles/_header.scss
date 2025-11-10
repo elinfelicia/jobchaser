@@ -1,12 +1,20 @@
-
-
 header {
     padding: 2rem;
     width: 90%;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    
+}
+
+.site-header {
+    padding-top: 2.5rem;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
 }
 
 ul {
@@ -16,12 +24,67 @@ ul {
 a {
     text-decoration: none;
 }
+
 .headers {
     max-width: 400px;
 }
+
 .heading {
     text-align: center;
+}
 
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.header__greeting {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.header__button {
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+
+    &:hover:not(:disabled) {
+        transform: translateY(-1px);
+        background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    &--primary {
+        background: linear-gradient(135deg, #7fdeff, #b19ccf);
+        color: #1f2633;
+
+        &:hover {
+            background: linear-gradient(135deg, #6fcff1, #a48cc7);
+        }
+    }
+
+    &--ghost {
+        background: transparent;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        color: var(--clr-dark);
+
+        &:hover:not(:disabled) {
+            border-color: rgba(0, 0, 0, 0.3);
+            color: var(--clr-bg-hover, #b19ccf);
+        }
+    }
 }
 .filering {
     display: flex;
@@ -58,4 +121,17 @@ a {
 .searchbar-input::placeholder {
     font-family: var(--ff-main);
     font-size: 20px;
+}
+
+@media (max-width: 720px) {
+    .header__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header__actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 }

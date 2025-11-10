@@ -1,11 +1,24 @@
-import SignInForm from "../SignInForm"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import SignInForm from "../SignInForm";
+import Loading from "../Loading";
+import { useAuth } from "../context/AuthContext";
 
 function SignInPage() {
-    return (
-        <div>
-            <h1>Sign In</h1>
-            <SignInForm />
-        </div>
-    )
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loading && user) {
+      navigate("/jobs");
+    }
+  }, [user, loading, navigate]);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  return <SignInForm />;
 }
-export default SignInPage
+
+export default SignInPage;

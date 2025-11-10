@@ -12,7 +12,7 @@ import {
   toggleFilterUSA,
   clearFilters
 } from '../slices/jobFilterSlice'
-import { RootState } from '../types/Types'; // assuming you have a RootState type defined
+import { RootState } from '../types/Types'; 
 
 function Jobs() {
   const [jobs, setJobs] = useState<Job[]>([]);

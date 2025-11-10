@@ -1,0 +1,224 @@
+.auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--clr-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__error {
+    background-color: #fee;
+    color: #c33;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    border: 1px solid #fcc;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+  }
+
+  &__field {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+  }
+
+  &__label {
+    display: block;
+    font-weight: 600;
+    color: var(--clr-dark);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  &__input {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--ff-main);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: white;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: var(--clr-bg-blue);
+      box-shadow: 0 0 0 3px rgba(127, 222, 255, 0.1);
+    }
+
+    &:disabled {
+      background-color: #f5f5f5;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  &__field-error {
+    display: block;
+    color: #c33;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+  }
+
+  &__button {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #7fdeff, #b19ccf);
+    color: #1f2633;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #6fcff1, #a48cc7);
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+  }
+
+  &__link {
+    color: var(--clr-dark);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--clr-bg-hover);
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-form-container {
+    padding: 0.5rem;
+    align-items: flex-start;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    min-width: 0;
+  }
+
+  .auth-form {
+    padding: 1.25rem;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    align-items: stretch; // Change from center to stretch on mobile
+
+    &__title {
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    &__field {
+      margin-bottom: 1rem;
+      max-width: 100%;
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+
+    &__label {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    &__input {
+      font-size: 16px; // Prevents zoom on iOS
+      padding: 0.65rem 0.85rem;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    &__button {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.95rem;
+      max-width: 100%;
+      width: 100%;
+      min-width: 0;
+    }
+
+    &__footer {
+      font-size: 0.85rem;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    &__error {
+      padding: 0.65rem 0.85rem;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+

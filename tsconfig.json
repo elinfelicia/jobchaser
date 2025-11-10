@@ -13,9 +13,10 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "jsx": "react-jsx",
-    "declaration": true, // Enables generation of .d.ts files
-    "outDir": "./dist" // Defines output directory for compiled files
+    "declaration": false,
+    "noEmit": true
   },
   "include": ["src"],
+  "exclude": ["node_modules", "dist", "**/*.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -15,17 +15,44 @@ body {
 }
 
 .jobs, main {
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
     padding-bottom: 3rem;
-
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .error-msg {
     font-size: 2rem;
     color: rgb(109, 104, 104);
+}
+
+.loading-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.landing-page {
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.landing-page__image {
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
+.landing-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }

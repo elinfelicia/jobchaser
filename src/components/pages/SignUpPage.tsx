@@ -1,11 +1,24 @@
-import SignUpForm from "../SignUpForm"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import SignUpForm from "../SignUpForm";
+import Loading from "../Loading";
+import { useAuth } from "../context/AuthContext";
 
 function SignUpPage() {
-    return (
-        <div>
-            <h1>Sign Up</h1>
-            <SignUpForm />
-        </div>
-    )
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loading && user) {
+      navigate("/jobs");
+    }
+  }, [user, loading, navigate]);
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  return <SignUpForm />;
 }
-export default SignUpPage
+
+export default SignUpPage;
