@@ -8,6 +8,6 @@ export type Job = {
     level: string;
     role: string;
     location: string;
-    languages: string[];
-    tools: string[];
+    languages?: string[];
+    tools?: string[];
 };

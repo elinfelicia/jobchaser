@@ -28,5 +28,15 @@
 
 .filter-btn {
     margin: 1rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
     
+    &--active {
+        background-color: var(--clr-bg-blue);
+        color: var(--clr-dark);
+        font-weight: 600;
+    }
+
+    &:hover {
+        transform: translateY(-1px);
+    }
 }
