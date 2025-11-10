@@ -17,6 +17,5 @@
     "noEmit": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "**/*.js"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }
