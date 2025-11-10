@@ -1,20 +1,24 @@
+@import 'breakpoints';
+
+// Mobile-first: Base styles (mobile)
 header {
-    padding: 2rem;
-    width: 90%;
-    max-width: 800px;
+    padding: 1rem 1.25rem;
+    width: 100%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 }
 
 .site-header {
-    padding-top: 2.5rem;
+    padding-top: 1.5rem;
 }
 
 .header__inner {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
 ul {
@@ -26,35 +30,46 @@ a {
 }
 
 .headers {
-    max-width: 400px;
+    max-width: 100%;
+    width: 100%;
 }
 
 .heading {
-    text-align: center;
+    text-align: left;
 }
 
 .header__actions {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .header__greeting {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: rgba(0, 0, 0, 0.65);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
 }
 
 .header__button {
-    padding: 0.6rem 1.4rem;
+    padding: 0.6rem 1.25rem;
     border-radius: 999px;
     border: none;
     font-weight: 600;
+    font-size: 0.9rem;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
     text-decoration: none;
     display: inline-block;
     text-align: center;
+    white-space: nowrap;
+    flex-shrink: 0;
 
     &:hover:not(:disabled) {
         transform: translateY(-1px);
@@ -86,52 +101,128 @@ a {
         }
     }
 }
+
 .filering {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 800px;
+    max-width: 100%;
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
+
 .searchbar {
     width: 100%;
     border: 1px solid var(--clr-dark);
-    padding: 10px 0;
+    padding: 8px 0;
     border-radius: 50px;
-    margin-top: 1.2rem;
-    font-size: 20px;
+    margin-top: 1rem;
+    font-size: 16px;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 
-
     &-input {
-        width: 80%;
-        padding:10px;
+        width: 75%;
+        padding: 8px;
         text-align: center;
         border: none;
-        margin-left: 10px;
+        margin-left: 8px;
         background: none;
         height: 100%;
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 
 .searchbar-input::placeholder {
     font-family: var(--ff-main);
-    font-size: 20px;
+    font-size: 16px;
 }
 
-@media (max-width: 720px) {
+// Tablet and up (768px+)
+@include tablet {
+    header {
+        padding: 1.5rem 2rem;
+        width: 90%;
+        max-width: 800px;
+    }
+
+    .site-header {
+        padding-top: 2rem;
+    }
+
     .header__inner {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+
+    .headers {
+        max-width: 400px;
+    }
+
+    .heading {
+        text-align: center;
     }
 
     .header__actions {
-        width: 100%;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        width: auto;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        gap: 1rem;
+    }
+
+    .header__greeting {
+        font-size: 0.95rem;
+        max-width: 200px;
+    }
+
+    .header__button {
+        padding: 0.6rem 1.4rem;
+        font-size: 1rem;
+    }
+
+    .filering {
+        max-width: 800px;
+        padding: 0;
+    }
+
+    .searchbar {
+        padding: 10px 0;
+        margin-top: 1.2rem;
+        font-size: 20px;
+
+        &-input {
+            width: 80%;
+            padding: 10px;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+    }
+
+    .searchbar-input::placeholder {
+        font-size: 20px;
+    }
+}
+
+// Desktop and up (1024px+)
+@include desktop {
+    header {
+        padding: 1.5rem 2.5rem;
+    }
+
+    .site-header {
+        padding-top: 2.5rem;
+    }
+
+    .header__actions {
+        gap: 1.25rem;
+    }
+
+    .header__greeting {
+        max-width: 250px;
     }
 }

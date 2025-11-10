@@ -1,12 +1,30 @@
-footer {
+@import 'breakpoints';
 
+// Mobile-first: Base styles (mobile)
+footer {
     position: fixed;
-    padding: .5rem;
+    padding: 0.5rem 1rem;
     bottom: 0;
     background-color: rgba(245, 245, 245, 0.415);
     width: 100%;
-    text-align: right;
+    text-align: center;
+    box-sizing: border-box;
+
     p {
-        padding-right: 2rem;
+        font-size: 0.85rem;
+        padding: 0;
     }
+}
+
+// Tablet and up (768px+)
+@include tablet {
+    footer {
+        padding: 0.5rem;
+        text-align: right;
+
+        p {
+            font-size: 1rem;
+            padding-right: 2rem;
+        }
     }
+}

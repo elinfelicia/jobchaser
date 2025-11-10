@@ -1,0 +1,34 @@
+// Mobile: default (0px - 767px) - no media query needed
+// Tablet: 768px and up
+// Desktop: 1024px and up
+// Large Desktop: 1280px and up 
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large-desktop: 1280px;
+
+// Mixins for easier media query usage
+@mixin tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: $breakpoint-large-desktop) {
+    @content;
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+

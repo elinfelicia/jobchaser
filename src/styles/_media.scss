@@ -1,9 +1,21 @@
-@media (min-width: 700px) {
-    .jobs, .main {
+@import 'breakpoints';
+
+// Mobile-first: Base styles are in _main.scss (column layout)
+// Tablet and up: Switch to row wrap layout for jobs grid
+@include tablet {
+    .jobs {
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
         align-items: flex-start;
         gap: 2rem;
+    }
+}
+
+// Desktop: Optimize spacing for larger screens
+@include desktop {
+    .jobs {
+        gap: 2.5rem;
+        padding: 2.5rem;
     }
 }
