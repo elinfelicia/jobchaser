@@ -17,7 +17,7 @@ body {
 }
 
 // Mobile-first: Base styles (mobile)
-.jobs, main {
+main {
     width: 100%;
     max-width: 100%;
     display: flex;
@@ -29,6 +29,17 @@ body {
     padding-bottom: 3rem;
     box-sizing: border-box;
     overflow-x: hidden;
+}
+
+.jobs {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: stretch;
 }
 
 .error-msg {
@@ -100,9 +111,13 @@ body {
 
 // Tablet and up (768px+)
 @include tablet {
-    .jobs, main {
+    main {
         gap: 2rem;
         padding: 2rem;
+    }
+    
+    .jobs {
+        gap: 2rem;
     }
 
     .error-msg {

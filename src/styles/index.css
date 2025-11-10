@@ -65,7 +65,7 @@ body {
           justify-content: space-between;
 }
 
-.jobs, main {
+main {
   width: 100%;
   max-width: 100%;
   display: -webkit-box;
@@ -87,6 +87,20 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow-x: hidden;
+}
+
+.jobs {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .error-msg {
@@ -187,9 +201,12 @@ body {
 }
 
 @media (min-width: 768px) {
-  .jobs, main {
+  main {
     gap: 2rem;
     padding: 2rem;
+  }
+  .jobs {
+    gap: 2rem;
   }
   .error-msg {
     font-size: 1.5rem;
@@ -510,11 +527,11 @@ a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 100%;
@@ -715,6 +732,7 @@ a {
 .filter-btn:hover {
   -webkit-transform: translateY(-1px);
           transform: translateY(-1px);
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -1002,20 +1020,15 @@ footer p {
 }
 @media (min-width: 768px) {
   .jobs {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 400px));
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
     gap: 2rem;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
   }
 }
 @media (min-width: 1024px) {

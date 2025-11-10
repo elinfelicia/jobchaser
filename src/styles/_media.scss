@@ -1,14 +1,14 @@
 @import 'breakpoints';
 
 // Mobile-first: Base styles are in _main.scss (column layout)
-// Tablet and up: Switch to row wrap layout for jobs grid
+// Tablet and up: Switch to CSS Grid for equal-height cards in rows
 @include tablet {
     .jobs {
-        display: flex;
-        flex-flow: row wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 400px));
         justify-content: center;
-        align-items: flex-start;
         gap: 2rem;
+        align-items: stretch;
     }
 }
 
